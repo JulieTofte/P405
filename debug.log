@@ -1,1 +1,3 @@
 [0420/111513:ERROR:registration_protocol_win.cc(53)] CreateFile: The system cannot find the file specified. (0x2)
+[0420/114254:ERROR:registration_protocol_win.cc(53)] CreateFile: The system cannot find the file specified. (0x2)
+[0429/113218:ERROR:registration_protocol_win.cc(53)] CreateFile: The system cannot find the file specified. (0x2)
