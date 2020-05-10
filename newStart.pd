@@ -1,18 +1,18 @@
-#N canvas 1 8 959 833 10;
-#X msg 56 17 devices;
-#X floatatom 67 119 5 0 0 0 - - -, f 5;
+#N canvas 206 23 959 784 10;
+#X msg 22 53 devices;
+#X floatatom 48 247 5 0 0 0 - - -, f 5;
 #X obj 43 759 dac~;
-#X msg 120 19 open 6;
-#X msg 225 18 close 6;
-#X obj 79 48 comport 6 9600;
-#X obj 278 81 expr $f1 < 100;
-#X floatatom 223 117 1 0 0 0 - - -, f 1;
-#X floatatom 64 184 5 0 0 0 - - -, f 5;
-#X floatatom 178 195 5 0 0 0 - - -, f 5;
-#X obj 63 163 spigot;
-#X obj 178 173 spigot 1;
-#X obj 223 151 == 0;
-#N canvas -32000 -32000 171 0 note2 1;
+#X msg 86 55 open 6;
+#X msg 191 54 close 6;
+#X obj 45 84 comport 6 9600;
+#X obj 198 164 expr $f1 < 100;
+#X floatatom 194 216 1 0 0 0 - - -, f 1;
+#X floatatom 45 312 5 0 0 0 - - -, f 5;
+#X floatatom 149 294 5 0 0 0 - - -, f 5;
+#X obj 44 291 spigot;
+#X obj 149 272 spigot 1;
+#X obj 194 250 == 0;
+#N canvas 0 22 171 0 note2 0;
 #X obj 223 177 + 0;
 #X obj 221 208 mtof;
 #X floatatom 103 199 5 0 0 0 - - -, f 5;
@@ -26,7 +26,7 @@
 #X msg 266 125 49;
 #X msg 301 126 50;
 #X msg 332 127 51;
-#N canvas -32000 -32000 171 0 guitar1 0;
+#N canvas 0 22 171 0 guitar1 0;
 #X obj 303 11 inlet;
 #X obj 318 341 outlet~;
 #X obj 163 142 noise~;
@@ -70,7 +70,7 @@
 #X connect 17 0 12 0;
 #X connect 18 0 1 0;
 #X restore 187 375 pd guitar1;
-#N canvas -32000 -32000 171 0 flute1 0;
+#N canvas 0 22 171 0 flute1 0;
 #X obj 105 71 phasor~;
 #X obj 102 110 bp~ 650 120;
 #X obj 169 163 *~;
@@ -135,8 +135,8 @@
 #X connect 22 1 24 0;
 #X connect 23 0 17 0;
 #X connect 24 0 20 0;
-#X restore 177 221 pd note2;
-#N canvas -32000 -32000 171 0 note1 1;
+#X restore 148 326 pd note2;
+#N canvas 0 22 171 0 note1 0;
 #X msg 125 123 56;
 #X msg 161 123 57;
 #X msg 192 123 58;
@@ -154,7 +154,7 @@
 #X obj 424 103 sel 113 97;
 #X obj 430 210 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 458 211 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 458 211 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X floatatom 209 250 5 0 0 0 - - -, f 5;
 #X obj 265 325 spigot;
@@ -164,7 +164,7 @@
 #X obj 427 284 == 1;
 #X text 450 85 Q;
 #X text 475 84 A;
-#N canvas -32000 -32000 171 0 guitar 0;
+#N canvas 0 22 171 0 guitar 0;
 #X obj 267 25 inlet;
 #X obj 296 310 outlet~;
 #X obj 137 118 noise~;
@@ -208,7 +208,7 @@
 #X connect 17 0 12 0;
 #X connect 18 0 1 0;
 #X restore 169 378 pd guitar;
-#N canvas -32000 -32000 171 0 flute 0;
+#N canvas 0 22 171 0 flute 0;
 #X obj 167 61 phasor~;
 #X obj 164 100 bp~ 650 120;
 #X obj 231 153 *~;
@@ -259,7 +259,7 @@
 #X connect 22 0 18 1;
 #X connect 25 0 11 0;
 #X connect 26 0 11 0;
-#X restore 66 229 pd note1;
+#X restore 47 357 pd note1;
 #N canvas 0 22 450 300 tremolo 0;
 #X obj 279 19 inlet;
 #X obj 119 116 *~;
@@ -274,10 +274,10 @@
 #X connect 4 0 6 0;
 #X connect 5 0 1 1;
 #X connect 6 0 5 0;
-#X restore 365 458 pd tremolo;
-#X obj 564 103 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+#X restore 243 440 pd tremolo;
+#X obj 365 149 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X floatatom 605 210 5 0 0 0 - - -, f 5;
+#X floatatom 406 256 5 0 0 0 - - -, f 5;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array filter1 100 float 5 black black;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -286,31 +286,19 @@
 0;
 #X coords 0 1 99 -1 200 140 1;
 #X restore 724 355 graph;
-#X obj 541 408 tabwrite~ filter1;
-#X obj 566 276 metro 100;
-#X obj 572 244 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 385 478 tabwrite~ filter1;
+#X obj 410 346 metro 100;
+#X obj 416 314 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 64 449 freeverb~;
-#X msg 285 348 wet \$1;
-#X obj 283 382 hsl 36 24 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 247 752 sig~;
+#X floatatom 264 713 5 0 0 0 - - -, f 5;
+#X obj 162 696 sig~;
+#X floatatom 185 665 5 0 0 0 - - -, f 5;
+#X obj 247 776 vd~ delayRight;
+#X obj 163 725 vd~ delayLeft;
+#X obj 47 132 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X msg 283 420 dry \$1;
-#X obj 281 448 hsl 36 24 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
-#X msg 281 482 roomsize \$1;
-#X obj 119 562 delwrite~ delayLeft 4000;
-#X obj 139 527 delwrite~ delayRight 4000;
-#X obj 286 318 hsl 36 24 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
-#X obj 386 724 sig~;
-#X floatatom 403 685 5 0 0 0 - - -, f 5;
-#X obj 262 685 sig~;
-#X floatatom 285 654 5 0 0 0 - - -, f 5;
-#X obj 386 748 vd~ delayRight;
-#X obj 259 717 vd~ delayLeft;
-#X obj 325 39 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 2700 1;
-#N canvas 0 0 450 300 (subpatch) 0;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array note3 100 float 5 black black;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -318,8 +306,8 @@
 0;
 #X coords 0 1 99 -1 200 140 1;
 #X restore 723 26 graph;
-#X obj 540 319 tabwrite~ note3;
-#N canvas 0 0 450 300 (subpatch) 0;
+#X obj 384 389 tabwrite~ note3;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array notes4 100 float 5 black black;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -327,8 +315,8 @@
 0;
 #X coords 0 1 99 -1 200 140 1;
 #X restore 724 190 graph;
-#X obj 541 358 tabwrite~ note4;
-#N canvas 0 0 450 300 (subpatch) 0;
+#X obj 385 428 tabwrite~ note4;
+#N canvas 0 22 450 300 (subpatch) 0;
 #X array array3 100 float 5 black black;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -336,13 +324,43 @@
 0;
 #X coords 0 1 99 -1 200 140 1;
 #X restore 723 519 graph;
-#X obj 542 444 tabwrite~ array3;
+#X obj 386 514 tabwrite~ array3;
+#N canvas 0 22 450 300 reverbAndDelay 0;
+#X obj 32 158 freeverb~;
+#X msg 291 59 wet \$1;
+#X obj 289 93 hsl 36 24 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 289 131 dry \$1;
+#X obj 287 159 hsl 36 24 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 287 192 roomsize \$1;
+#X obj 226 283 delwrite~ delayLeft 4000;
+#X obj 245 234 delwrite~ delayRight 4000;
+#X obj 292 29 hsl 36 24 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 16 297 outlet~;
+#X obj 77 299 outlet~;
+#X obj 17 29 inlet~;
+#X obj 118 27 inlet~;
+#X connect 0 0 6 0;
+#X connect 0 0 9 0;
+#X connect 0 1 7 0;
+#X connect 0 1 10 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 8 0 1 0;
+#X connect 11 0 0 0;
+#X connect 12 0 0 1;
+#X restore 49 425 pd reverbAndDelay;
 #X connect 0 0 5 0;
 #X connect 1 0 10 0;
 #X connect 1 0 11 0;
 #X connect 3 0 5 0;
 #X connect 4 0 5 0;
-#X connect 5 0 37 0;
+#X connect 5 0 28 0;
 #X connect 6 0 7 0;
 #X connect 7 0 10 1;
 #X connect 7 0 12 0;
@@ -352,37 +370,28 @@
 #X connect 11 0 9 0;
 #X connect 12 0 11 1;
 #X connect 13 0 15 0;
-#X connect 13 0 22 1;
-#X connect 13 0 41 0;
+#X connect 13 0 32 0;
+#X connect 13 0 35 1;
 #X connect 14 0 15 0;
-#X connect 14 0 22 0;
-#X connect 14 0 39 0;
+#X connect 14 0 30 0;
+#X connect 14 0 35 0;
 #X connect 15 0 2 0;
 #X connect 15 0 2 1;
 #X connect 15 0 19 0;
 #X connect 16 0 15 1;
 #X connect 16 0 17 0;
 #X connect 20 0 19 0;
-#X connect 20 0 39 0;
-#X connect 20 0 41 0;
-#X connect 20 0 43 0;
+#X connect 20 0 30 0;
+#X connect 20 0 32 0;
+#X connect 20 0 34 0;
 #X connect 21 0 20 0;
-#X connect 22 0 28 0;
-#X connect 22 0 2 0;
-#X connect 22 0 43 0;
-#X connect 22 1 29 0;
-#X connect 22 1 2 1;
+#X connect 22 0 26 0;
 #X connect 23 0 22 0;
-#X connect 24 0 25 0;
-#X connect 25 0 22 0;
-#X connect 26 0 27 0;
-#X connect 27 0 22 0;
-#X connect 30 0 23 0;
-#X connect 31 0 35 0;
-#X connect 32 0 31 0;
-#X connect 33 0 36 0;
-#X connect 34 0 33 0;
-#X connect 35 0 2 1;
-#X connect 36 0 2 0;
-#X connect 37 0 6 0;
-#X connect 37 0 1 0;
+#X connect 24 0 27 0;
+#X connect 25 0 24 0;
+#X connect 26 0 2 1;
+#X connect 27 0 2 0;
+#X connect 28 0 6 0;
+#X connect 28 0 1 0;
+#X connect 35 0 2 0;
+#X connect 35 1 2 1;
